@@ -10,20 +10,23 @@ const ProductProvider = (props) => {
   const [cartSubtotal, setCartSubtotal] = useState(0);
   const [cartTax, setCartTax] = useState(0);
   const [cartTotal, setCartTotal] = useState(0);
-  const [input, setInput] = useState('')
+  const [input, setInput] = useState("");
+  const [filteredProducts, setFilteredProducts] = useState([])
 
-  const handleSearch = () => {
-    let tempProducts = [...products]
-    let tempProducts = tempProducts.filter(val => {
-      return (
-        val.product_name.toLowerCase().includes(input.toLowerCase())
-
-    )})
-  }
-
-  const handleInput = e => {
-    setInput(e.target.value)
-  }
+  const handleSearch = (input) => {
+    let tempProducts = [...products];
+    let filteredProducts = tempProducts.filter((val) => {
+      return val.product_name.toLowerCase().includes(input.toLowerCase());
+    });
+    if(input.length > 0){
+      return setFilteredProducts([...filteredProducts])
+    }
+  };
+  
+  const handleInput = (e) => {
+    setInput(e.target.value);
+    handleSearch(e.target.value)
+  };
 
   const getItem = (id) => {
     const product = products.find((item) => item.id === id);
@@ -73,7 +76,7 @@ const ProductProvider = (props) => {
     setCartTax(totals.tax);
     setCartTotal(totals.total);
   };
-  
+
   const increment = (id) => {
     let tempCart = [...cart];
     const selectedProduct = tempCart.find((item) => item.id === id);
@@ -130,6 +133,8 @@ const ProductProvider = (props) => {
         cartTax,
         cartTotal,
         cart,
+        filteredProducts,
+        input,
         addToCart: addToCart,
         handleDetail: handleDetail,
         clearCart: clearCart,
@@ -137,7 +142,7 @@ const ProductProvider = (props) => {
         increment: increment,
         removeItem: removeItem,
         handleSearch: handleSearch,
-        handleInput: handleInput
+        handleInput: handleInput,
       }}
     >
       {props.children}

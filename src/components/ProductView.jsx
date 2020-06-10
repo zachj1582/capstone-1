@@ -1,18 +1,23 @@
 import React, { useState } from "react";
 import { ProductConsumer } from "../context";
 import Product from "./Product";
-import Search from './Search'
+import Search from "./Search";
 
 const ProductView = (props) => {
-  const [input, setInput] = useState("");
   return (
     <div className="products-grid">
-        <Search/>
+      <Search />
       <ProductConsumer>
         {(value) => {
-          return value.products.map((product) => {
-            return <Product key={product.id} product={product} />;
-          });
+          if (value.input.length > 0) {
+            return value.filteredProducts.map((product) => {
+              return <Product key={product.id} product={product} />;
+            });
+          } else {
+            return value.products.map((product) => {
+              return <Product key={product.id} product={product} />;
+            });
+          }
         }}
       </ProductConsumer>
     </div>

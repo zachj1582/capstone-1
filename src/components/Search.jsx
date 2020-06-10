@@ -10,7 +10,6 @@ const Search = () => {
             return (
                 <input type="text" onChange={(e)=> {
                     value.handleInput(e)
-                    value.handleSearch()
                 }} />
             )
         }}
