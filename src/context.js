@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import mockData from "./MOCK_DATA.json";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const ProductContext = React.createContext();
 
@@ -11,21 +13,21 @@ const ProductProvider = (props) => {
   const [cartTax, setCartTax] = useState(0);
   const [cartTotal, setCartTotal] = useState(0);
   const [input, setInput] = useState("");
-  const [filteredProducts, setFilteredProducts] = useState([])
+  const [filteredProducts, setFilteredProducts] = useState([]);
 
   const handleSearch = (input) => {
-    let tempProducts = [...products];
+    const tempProducts = [...products];
     let filteredProducts = tempProducts.filter((val) => {
       return val.product_name.toLowerCase().includes(input.toLowerCase());
     });
-    if(input.length > 0){
-      return setFilteredProducts([...filteredProducts])
+    if (input.length > 0) {
+      return setFilteredProducts([...filteredProducts]);
     }
   };
-  
+
   const handleInput = (e) => {
     setInput(e.target.value);
-    handleSearch(e.target.value)
+    handleSearch(e.target.value);
   };
 
   const getItem = (id) => {
@@ -38,28 +40,42 @@ const ProductProvider = (props) => {
     setDetailItem(product);
   };
 
+  useEffect(() => {
+    addTotals();
+  });
+
   const addToCart = (id) => {
     let tempProducts = [...products];
     const index = tempProducts.indexOf(getItem(id));
     const product = tempProducts[index];
-    product.inCart = true;
-    product.count = 1;
-    const price = product.price;
-    product.total = price;
+    if (product.inventory_count < 1) {
+      toast.error(
+        "Yikes, this item is currently out of stock. We're always replenishing, check back soon!",
+        {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+        }
+      );
+    } else {
+      product.inCart = true;
+      product.count = 1;
+      product.inventory_count--;
+      const price = product.price;
+      product.total = price;
 
-    setProducts([...tempProducts]);
-    setCart([...cart, product]);
-    setDetailItem({ ...product });
-
-    addTotals([...cart, product]);
+      setProducts([...tempProducts]);
+      setCart([...cart, product]);
+      setDetailItem({ ...product });
+    }
   };
 
-  const getTotals = (items) => {
+  const getTotals = () => {
     let subtotal = 0;
-    items.map((item) => {
-      console.log("item:", item, "subtotal:", subtotal);
-      subtotal += item.total;
-    });
+    cart.map((item) => (subtotal += item.total));
     const tempTax = subtotal * 0.0825;
     const tax = parseFloat(tempTax.toFixed(2));
     const total = subtotal + tax;
@@ -70,8 +86,8 @@ const ProductProvider = (props) => {
     };
   };
 
-  const addTotals = (item) => {
-    const totals = getTotals(item);
+  const addTotals = () => {
+    const totals = getTotals();
     setCartSubtotal(totals.subtotal);
     setCartTax(totals.tax);
     setCartTotal(totals.total);
@@ -82,10 +98,25 @@ const ProductProvider = (props) => {
     const selectedProduct = tempCart.find((item) => item.id === id);
     const index = tempCart.indexOf(selectedProduct);
     const product = tempCart[index];
-    product.count = product.count + 1;
-    product.total = product.count * product.price;
-    setCart([...tempCart]);
-    addTotals();
+    if (product.inventory_count < 1) {
+      return toast.error(
+        "Yikes, this item is currently out of stock. We're always replenishing, check back soon!",
+        {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+        }
+      );
+    } else {
+      product.count++;
+      product.inventory_count--;
+      product.total = product.count * product.price;
+      setCart([...tempCart]);
+      addTotals();
+    }
   };
 
   const decrement = (id) => {
@@ -93,7 +124,8 @@ const ProductProvider = (props) => {
     const selectedProduct = tempCart.find((item) => item.id === id);
     const index = tempCart.indexOf(selectedProduct);
     const product = tempCart[index];
-    product.count = product.count - 1;
+    product.count--;
+    product.inventory_count++;
     if (product.count === 0) {
       removeItem(id);
     } else {
@@ -109,6 +141,7 @@ const ProductProvider = (props) => {
     const index = tempProducts.indexOf(getItem(id));
     let removedItem = tempProducts[index];
     removedItem.inCart = false;
+    removedItem.inventory_count += removedItem.count;
     removedItem.count = 0;
     removedItem.total = 0;
 
@@ -119,7 +152,7 @@ const ProductProvider = (props) => {
     addTotals();
   };
 
-  const clearCart = () => {
+  const clearCart = (id) => {
     setCart([]);
     addTotals();
   };

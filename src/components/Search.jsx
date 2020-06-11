@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {ProductConsumer} from '../context'
 
 const Search = () => {
@@ -8,7 +8,7 @@ const Search = () => {
     <ProductConsumer>
         {(value)=>{
             return (
-                <input type="text" onChange={(e)=> {
+                <input className='search-bar' type="text" placeholder='Search' onChange={(e)=> {
                     value.handleInput(e)
                 }} />
             )

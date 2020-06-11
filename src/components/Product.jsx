@@ -6,38 +6,38 @@ const Product = (props) => {
   const {
     product_name,
     product_image,
-    manufacturer,
     price,
-    serial_number,
     category,
     id,
     inCart,
   } = props.product;
   return (
-    <div className="product-card">
-      <ProductConsumer>
-        {(value) => {
-          return (
-            <div>
-              <div
-                className="img_container"
-                onClick={() => value.handleDetail(id)}
-              >
-                <Link to="/details">
-                  <img src={product_image} alt="product" />
-                </Link>
-              </div>
-              <p>{manufacturer}</p>
-              <p>{product_name}</p>
-              <p>{price}</p>
-              <p>{serial_number}</p>
-              <p>{category}</p>
-              <button onClick={() => value.addToCart(id)}>Add to cart</button>
+    <ProductConsumer>
+      {(value) => {
+        return (
+          <div className="product-card">
+            <div
+              className="img-container"
+              onClick={() => value.handleDetail(id)}
+            >
+              <Link to="/details">
+                <img className="img" src={product_image} alt="product" />
+              </Link>
             </div>
-          );
-        }}
-      </ProductConsumer>
-    </div>
+            <p>{product_name}</p>
+            <p>Galleons ~ {price}</p>
+            <p>{category}</p>
+            <button
+              className="pcard-addto"
+              onClick={() => value.addToCart(id)}
+              disabled={inCart}
+            >
+              {inCart ? <p className='btn-txt' >In cart</p> : <p className='btn-txt' >Add to cart</p>}
+            </button>
+          </div>
+        );
+      }}
+    </ProductConsumer>
   );
 };
 

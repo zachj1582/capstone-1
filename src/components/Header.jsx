@@ -5,11 +5,11 @@ const Header = (props) => {
   return (
     <header className="header">
       <Link to="/">
-        <p>Products</p>
+        <p className='links' >Products</p>
       </Link>
-      <h1>Weasleys' Wizard Wheezes</h1>
+      <h1 id='title'>Weasleys' Wizard Wheezes</h1>
       <Link to="/cart">
-        <p>Cart</p>
+        <p className='links' >Cart</p>
       </Link>
     </header>
   );
