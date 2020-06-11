@@ -1,6 +1,5 @@
 import React from "react";
 import { ProductConsumer } from "../context";
-import { Link } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 
 const Details = (props) => {
@@ -29,12 +28,15 @@ const Details = (props) => {
                 <p className="p-info">Galleons ~ {price}</p>
                 <p className="p-info">Category ~ {category}</p>
                 <p className="p-info">Sku ~ {serial_number}</p>
-                <div className='btn-cont-detail' >
-                  <Link to="/">
-                    <button className="btn-detail" id='left' >Back to products</button>
-                  </Link>
+                <div className="btn-cont-detail">
                   <button
-
+                    onClick={() => props.history.push("/")}
+                    className="btn-detail"
+                    id="left"
+                  >
+                    Back to products
+                  </button>
+                  <button
                     className="btn-detail"
                     disabled={inCart}
                     onClick={() => value.addToCart(id)}

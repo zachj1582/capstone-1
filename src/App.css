@@ -4,7 +4,7 @@
 }
 
 .App {
-    background-image: radial-gradient(rgb(113, 143, 228), rgb(124, 54, 54));
+  background-image: radial-gradient(rgb(113, 143, 228), rgb(124, 54, 54));
   min-height: 100vh;
   color: rgba(226, 192, 0, 0.863);
 }
@@ -98,15 +98,14 @@ header {
 }
 
 button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    font-weight: bolder;
-    border: none;
-    background-image: radial-gradient(rgb(179, 161, 238),rgb(155, 186, 226));
-    color: rgb(235, 200, 3);
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-weight: bolder;
+  border: none;
+  background-image: radial-gradient(rgb(179, 161, 238), rgb(155, 186, 226));
+  color: rgb(235, 200, 3);
 }
 
 .btn-txt {
@@ -118,160 +117,157 @@ button {
   transform: translate(0, 0);
 }
 
-
 /* details */
 
 .details {
-    display: flex;
-    justify-content: space-evenly;
-
+  display: flex;
+  justify-content: space-evenly;
 }
 
 .img-container-detail {
-    height: 70vh;
-    width: 40%;
-    border-radius: 10%;
+  height: 70vh;
+  width: 40%;
+  border-radius: 10%;
 }
 
 .img-detail {
-    height: 100%;
-    width: 100%;
-
+  height: 100%;
+  width: 100%;
 }
 
 .info-detail {
-    height: 70vh;
-    width: 40%;
-
+  height: 70vh;
+  width: 40%;
 }
 h2 {
-    font-size: 2.5rem;
+  font-size: 2.5rem;
 }
 
 .p-details {
-    margin-top: 5%;
-    font-size: 1.4rem;
+  margin-top: 5%;
+  font-size: 1.4rem;
 }
 
 .p-info {
-    font-size: 1.1rem;
-
+  font-size: 1.1rem;
 }
 
 .btn-detail {
-    height: 5vh;
-    width: 35%;
-    border-radius: 8%;
-    border: none;
-    background-image: radial-gradient(rgb(179, 161, 238),rgb(155, 186, 226));
-    font-size: 1rem;
-    color: rgb(235, 200, 3);
+  height: 5vh;
+  width: 35%;
+  border-radius: 8%;
+  border: none;
+  background-image: radial-gradient(rgb(179, 161, 238), rgb(155, 186, 226));
+  font-size: 1rem;
+  color: rgb(235, 200, 3);
 }
 
 #left {
-    margin-right: 15%;
-    margin-left: 7%;
+  margin-right: 15%;
+  margin-left: 7%;
 }
 
 .btn-cont-detail {
-    margin-top: 5%;
+  margin-top: 5%;
+  display: flex;
 }
 
 /* Cart */
 
 #empty-cart {
-    font-size: 3rem;
-    text-align: center;
-    margin-top: 4%;
+  font-size: 3rem;
+  text-align: center;
+  margin-top: 4%;
 }
 
 #logo {
-    height: 70vh;
-    margin-left: 32%;
+  height: 70vh;
+  margin-left: 32%;
 }
 
 .cart-cats {
-    display: flex;
-    justify-content: space-around;
+  display: flex;
+  justify-content: space-around;
 }
 
 .cart-title {
-    width: 13%;
-    text-align: center;
+  width: 13%;
+  text-align: center;
 }
 
 .cart-row {
-    display: flex;
-    justify-content: space-around;
-    height: 10vh;
-    margin-top: 2%;
-    text-align: center;
+  display: flex;
+  justify-content: space-around;
+  height: 10vh;
+  margin-top: 2%;
+  text-align: center;
 }
 
 .cart-pic {
-    width: 13%;
+  width: 13%;
 }
 
 .cart-qty {
-    padding: 4vh 0;
-    width: 13%;
-    display: flex;
-    justify-content: space-around;
+  padding: 4vh 0;
+  width: 13%;
+  display: flex;
+  justify-content: space-around;
 }
 
 .cart-price {
-    padding: 4vh 0;
-    width: 13%;
+  padding: 4vh 0;
+  width: 13%;
 }
 
 .cart-name {
-    padding: 4vh 0;
-    width: 13%;
+  padding: 4vh 0;
+  width: 13%;
 }
 
 .cart-remove {
-    width: 13%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: 13%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .cart-item-total {
-    padding: 4vh 0;
-    width: 13%;
+  padding: 4vh 0;
+  width: 13%;
 }
 
 .btn-count {
-    width: 40%;
+  width: 40%;
 }
 
 #btn-right {
-    padding-bottom: 1%;
+  padding-bottom: 1%;
 }
 
 #cart-remove-btn {
-    width: 50%;
-    height: 30%;
+  width: 50%;
+  height: 30%;
 }
 
 .checkout-box {
-    height: 20vh;
-    width: 100%;
-    margin-top: 3%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: flex-end;
-    text-transform: uppercase;
-    font-weight: bolder;
-    font-size: 1.2rem;
+  height: 20vh;
+  width: 100%;
+  margin-top: 3%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  text-transform: uppercase;
+  font-weight: bolder;
+  font-size: 1.2rem;
 }
 
 .checkout {
-    height: 20vh;
-    margin-right: 8%;
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    flex-direction: column;
+  height: 20vh;
+  margin-right: 8%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-direction: column;
+  margin-bottom: 3%;
 }
