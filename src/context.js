@@ -152,7 +152,7 @@ const ProductProvider = (props) => {
     addTotals();
   };
 
-  const clearCart = (id) => {
+  const clearCart = () => {
     setCart([]);
     addTotals();
   };

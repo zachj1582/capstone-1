@@ -27,11 +27,11 @@
 * Story Board:
 * cust view: main product view => 
 * Header- static; title, cart link, <= MVP, additional features => About page link
+* products => map products, set up search bar and functionality, display each item with minimal info, have onclick that directs to a single item page to display all the details of each item.
+* cart => displays each item with a count increase that updates item subtotal with error handling for inventory running out. has checkout in same view with subtotal, tax and total updating in sync with updating quantities in the cart.
 *
-*
-*
-*
-*
+* Styling => it's a joke shop, fun colors, fun items, animations etc. maroon and gold/yellow based colors for main theme.
+* Data => took a long time to search for pics for each item...
 *
 <h2>
     3. Executing the Plan
@@ -47,11 +47,11 @@
 <h2>
     4. Reflection / Refactor
 </h2>
+* refactor the data to account for inventory qty and error handling, updated planning...
 *
 *
 *
-*
-*
+*reflection => context was annoying to work with, redux is preferable for passing data to components. had to work around where the data and functions were available to use. 
 *
 *
 *
