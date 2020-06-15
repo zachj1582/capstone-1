@@ -1,0 +1,273 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  background-image: radial-gradient(rgb(113, 143, 228), rgb(124, 54, 54));
+  min-height: 100vh;
+  color: rgba(226, 192, 0, 0.863);
+}
+
+/* header */
+
+header {
+  height: 15vh;
+  width: 100%;
+  /* background-color: rgb(124, 54, 54); */
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+#title {
+  font-size: 4rem;
+  color: rgba(226, 192, 0, 0.863);
+  font-family: "Satisfy", cursive;
+}
+
+.links {
+  color: rgba(226, 192, 0, 0.863);
+  text-decoration: none;
+  font-family: "Raleway", sans-serif;
+}
+
+/* Product view */
+
+.search-bar {
+  width: 92%;
+  height: 4vh;
+  margin: 2vh 0 0 0;
+  /* border-radius: 50px;
+    border-width: 2px; */
+  text-align: center;
+  font-weight: bolder;
+  font-size: 1.3rem;
+  background-color: rgba(255, 255, 255, 0.281);
+  color: gold;
+  border: none;
+  border-radius: 0.3em;
+}
+
+.products-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.product-card {
+  height: 20em;
+  width: 28%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2vh 0;
+  position: relative;
+  overflow: hidden;
+  text-transform: capitalize;
+  font-weight: bolder;
+  font-family: "Raleway", sans-serif;
+}
+
+.img-container {
+  height: 80%;
+  width: 90%;
+  overflow: hidden;
+  border-radius: 10%;
+}
+
+.product-card:hover .img {
+  transform: scale(1.2);
+}
+
+.img {
+  height: 100%;
+  width: 100%;
+  border-radius: 10%;
+  transition: all 1s linear;
+}
+
+.pcard-addto {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 2em;
+  border-radius: 8%;
+  transform: translate(100%, 100%);
+  transition: all 1s ease-in-out;
+}
+
+button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-weight: bolder;
+  border: none;
+  background-image: radial-gradient(rgb(179, 161, 238), rgb(155, 186, 226));
+  color: rgb(235, 200, 3);
+}
+
+.btn-txt {
+  text-align: center;
+  margin-bottom: 0;
+}
+
+.product-card:hover .pcard-addto {
+  transform: translate(0, 0);
+}
+
+/* details */
+
+.details {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.img-container-detail {
+  height: 70vh;
+  width: 40%;
+  border-radius: 10%;
+}
+
+.img-detail {
+  height: 100%;
+  width: 100%;
+}
+
+.info-detail {
+  height: 70vh;
+  width: 40%;
+}
+h2 {
+  font-size: 2.5rem;
+}
+
+.p-details {
+  margin-top: 5%;
+  font-size: 1.4rem;
+}
+
+.p-info {
+  font-size: 1.1rem;
+}
+
+.btn-detail {
+  height: 5vh;
+  width: 35%;
+  border-radius: 8%;
+  border: none;
+  background-image: radial-gradient(rgb(179, 161, 238), rgb(155, 186, 226));
+  font-size: 1rem;
+  color: rgb(235, 200, 3);
+}
+
+#left {
+  margin-right: 15%;
+  margin-left: 7%;
+}
+
+.btn-cont-detail {
+  margin-top: 5%;
+  display: flex;
+}
+
+/* Cart */
+
+#empty-cart {
+  font-size: 3rem;
+  text-align: center;
+  margin-top: 4%;
+}
+
+#logo {
+  height: 70vh;
+  margin-left: 32%;
+}
+
+.cart-cats {
+  display: flex;
+  justify-content: space-around;
+}
+
+.cart-title {
+  width: 13%;
+  text-align: center;
+}
+
+.cart-row {
+  display: flex;
+  justify-content: space-around;
+  height: 10vh;
+  margin-top: 2%;
+  text-align: center;
+}
+
+.cart-pic {
+  width: 13%;
+}
+
+.cart-qty {
+  padding: 4vh 0;
+  width: 13%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.cart-price {
+  padding: 4vh 0;
+  width: 13%;
+}
+
+.cart-name {
+  padding: 4vh 0;
+  width: 13%;
+}
+
+.cart-remove {
+  width: 13%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cart-item-total {
+  padding: 4vh 0;
+  width: 13%;
+}
+
+.btn-count {
+  width: 40%;
+}
+
+#btn-right {
+  padding-bottom: 1%;
+}
+
+#cart-remove-btn {
+  width: 50%;
+  height: 30%;
+}
+
+.checkout-box {
+  height: 20vh;
+  width: 100%;
+  margin-top: 3%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  text-transform: uppercase;
+  font-weight: bolder;
+  font-size: 1.2rem;
+}
+
+.checkout {
+  height: 20vh;
+  margin-right: 8%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-direction: column;
+  margin-bottom: 3%;
+}
